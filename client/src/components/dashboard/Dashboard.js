@@ -1,57 +1,80 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
+import { Field, reduxForm } from 'redux-form'
+import { productForm } from "../../actions/authActions";
+import {connect} from 'react-redux';
+
 
 class Dashboard extends Component {
-  onLogoutClick = e => {
-    e.preventDefault();
-    this.props.logoutUser();
-  };
+  constructor() {
+    super();
+    this.state = {
+      productname: '',
+      productDescription: '',
+      location: '',
+      quantity: ''
+    };
+  }
+
+  onChange= e => {
+    this.setState({ [e.target.id]: e.target.value });
+  }
+
+
+    onSubmit = e => {
+      e.preventDefault();
+
+      const productData = {
+        productname: this.state.productname,
+        productDescription: this.state.productDescription,
+        location: this.state.location,
+        quantity: this.state.quantity
+      }
+
+      this.props.productForm(productData)
+    }
 
   render() {
-    const { user } = this.props.auth;
+
+    const {handleSubmit} = this.props;
 
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
-        <div className="row">
-          <div className="landing-copy col s12 center-align">
-            <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
-              <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
-              </p>
-            </h4>
-            <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem"
-              }}
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            >
-              Logout
-            </button>
+      <React.Fragment>
+      <form noValidate onSubmit={this.onSubmit}>
+        <div class="field">
+          <label class="label">Product</label>
+          <div class="control">
+            <input onChange={this.onChange} id="productname" name="productname" class="input" type="text" placeholder="Text input" />
           </div>
         </div>
-      </div>
+        <div class="field">
+          <label class="label">Product Desciption</label>
+          <div class="control">
+            <textarea onChange={this.onChange} id="productDescription" name="productDescription" class="textarea" placeholder="Textarea"></textarea>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Location</label>
+          <div class="control">
+            <input  onChange={this.onChange} id="location" name="location" class="input" type="text" placeholder="Text input" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Quantity</label>
+          <div class="control">
+            <input onChange={this.onChange} id="quantity" name="quantity" class="input" type="text" placeholder="Text input" />
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <button class="button is-link">Submit</button>
+          </div>
+        </div>
+
+      </form>
+      </React.Fragment>
     );
   }
 }
 
-Dashboard.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
-};
 
-const mapStateToProps = state => ({
-  auth: state.auth
-});
-
-export default connect(
-  mapStateToProps,
-  { logoutUser }
-)(Dashboard);
+export default connect(null, {productForm})(Dashboard);

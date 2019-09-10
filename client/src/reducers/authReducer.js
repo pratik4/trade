@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER, USER_LOADING } from "../actions/types";
+import { SET_CURRENT_USER, USER_LOADING, PRODUCT_FORM_REQUEST, PRODUCT_FORM} from "../actions/types";
 
 const isEmpty = require("is-empty");
 
@@ -21,6 +21,8 @@ export default function(state = initialState, action) {
         ...state,
         loading: true
       };
+    case PRODUCT_FORM:
+    case PRODUCT_FORM_REQUEST:
     default:
       return state;
   }

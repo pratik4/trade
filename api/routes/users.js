@@ -1,23 +1,29 @@
-const express = require("express");
-const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const passport = require("passport");
 
-// Load input validation
-const validateRegisterInput = require("../../validation/register");
-const validateLoginInput = require("../../validation/login");
-
 // Load User model
-const User = require("../../models/User");
+const User = require("../models/User");
 
-// @route POST api/users/register
-// @desc Register user
-// @access Public
-router.post("/register", (req, res) => {
+// Load input validation
+const validateRegisterInput = require("../validation/register");
+const validateLoginInput = require("../validation/login");
+
+class userRoute {
+  constructor(router) {
+    this.router = router;
+    this.registerRoutes();
+  }
+  registerRoutes() {
+    this.router.post("/users/register", this.userRegister.bind(this));
+
+    this.router.post("/users/login", this.userLogin.bind(this));
+
+  }
+
+  userRegister(req,res)  {
   // Form validation
-
   const { errors, isValid } = validateRegisterInput(req.body);
 
   // Check validation
@@ -32,7 +38,8 @@ router.post("/register", (req, res) => {
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        usertype: req.body.user_type
       });
 
       // Hash password before saving in database
@@ -48,12 +55,10 @@ router.post("/register", (req, res) => {
       });
     }
   });
-});
+}
 
-// @route POST api/users/login
-// @desc Login user and return JWT token
-// @access Public
-router.post("/login", (req, res) => {
+
+  userLogin(req, res) {
   // Form validation
 
   const { errors, isValid } = validateLoginInput(req.body);
@@ -104,6 +109,16 @@ router.post("/login", (req, res) => {
       }
     });
   });
-});
+}
 
-module.exports = router;
+// @route POST api/users/register
+// @desc Register user
+// @access Public
+
+
+// @route POST api/users/login
+// @desc Login user and return JWT token
+// @access Public
+}
+
+export default userRoute;

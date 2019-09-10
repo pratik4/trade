@@ -1,3 +1,6 @@
 export const GET_ERRORS = "GET_ERRORS";
 export const USER_LOADING = "USER_LOADING";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+
+export const PRODUCT_FORM = "PRODUCT_FORM";
+export const PRODUCT_FORM_REQUEST = "PRODUCT_FORM_REQUEST";

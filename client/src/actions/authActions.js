@@ -2,13 +2,13 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 
-import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
+import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING, PRODUCT_FORM_REQUEST, PRODUCT_FORM } from "./types";
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
     .post("/api/users/register", userData)
-    .then(res => history.push("/login"))
+    .then(res => history.push('./login'))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -19,6 +19,7 @@ export const registerUser = (userData, history) => dispatch => {
 
 // Login - get user token
 export const loginUser = userData => dispatch => {
+  console.log('userData', userData)
   axios
     .post("/api/users/login", userData)
     .then(res => {
@@ -57,6 +58,7 @@ export const setUserLoading = () => {
   };
 };
 
+
 // Log user out
 export const logoutUser = () => dispatch => {
   // Remove token from local storage
@@ -66,3 +68,15 @@ export const logoutUser = () => dispatch => {
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
 };
+
+
+// Product PRODUCT_FORM
+
+export const productForm = data => dispatch => {
+  axios
+    .post('/api/sell', data)
+    .then(res => console.log(res.status))
+    .catch(err => console.log('product form', err));
+}
+
+const requestContactUsForm = () => ({ type: PRODUCT_FORM_REQUEST });

@@ -1,0 +1,21 @@
+.section-one {
+  background-color: #ccc;
+}
+
+
+.section-one .text-2 {
+  font-size: 36px;
+}
+
+.section-one .tile .button {
+  height: 55px;
+  width: 100%;
+}
+
+.tile-box {
+  padding: 10px;
+}
+
+.section-four .level {
+  margin-top: 70px;
+}

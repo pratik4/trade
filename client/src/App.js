@@ -9,10 +9,15 @@ import store from "./store";
 
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
-import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./components/dashboard/Dashboard";
+
+import BuyerRegister from './components/auth/buyer';
+import SellerRegister from './components/auth/buyer';
+
+import Sellpage from './components/sell';
+import Buypage from './components/buy';
+
 
 import "./App.css";
 
@@ -25,16 +30,22 @@ if (localStorage.jwtToken) {
   const decoded = jwt_decode(token);
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
+
   // Check for expired token
+
+  console.log(decoded);
   const currentTime = Date.now() / 1000; // to get in milliseconds
   if (decoded.exp < currentTime) {
     // Logout user
     store.dispatch(logoutUser());
 
     // Redirect to login
-    window.location.href = "./login";
+    window.location.href = "./";
   }
 }
+
+
+
 class App extends Component {
   render() {
     return (
@@ -43,10 +54,12 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <Route exact path="/" component={Landing} />
-            <Route exact path="/register" component={Register} />
+            <Route exact path="/seller" component={SellerRegister} />
+            <Route exact path="/buyer" component={BuyerRegister} />
             <Route exact path="/login" component={Login} />
             <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute user_type='seller' exact path="/sell" component={Sellpage} />
+              <PrivateRoute user_type="buyer" exact path="/buy" component={Buypage} />
             </Switch>
           </div>
         </Router>
@@ -54,4 +67,6 @@ class App extends Component {
     );
   }
 }
+
+
 export default App;
