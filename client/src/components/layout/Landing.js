@@ -62,7 +62,7 @@ class Landing extends Component {
             <div className="container">
               <div className="columns is-mobile">
                 <div className="column is-6">
-                  <figure class="image ">
+                  <figure className="image ">
                     <img src={imageone} />
                   </figure>
                 </div>
@@ -107,7 +107,7 @@ class Landing extends Component {
                           <img className="image" src={social} />
                         </div>
                         <div className="level-item">
-                          <span className="title">connect with other buyers</span>
+                          <span className="title">Connect with other buyers</span>
                         </div>
                       </div>
                       <div className="content">
@@ -209,7 +209,7 @@ class Landing extends Component {
       <footer className="footer has-background-black">
         <div className="content has-text-centered">
           <p className="has-text-white">
-            Made with  <span> <i class="fas fa-heart"></i> </span> by <strong style={{color:`white`}}>Rewind</strong>
+            Made with  <span> <i className="fas fa-heart"></i> </span> by <strong style={{color:`white`}}>Rewind</strong>
           </p>
         </div>
       </footer>

@@ -13,7 +13,7 @@ import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 
 import BuyerRegister from './components/auth/buyer';
-import SellerRegister from './components/auth/buyer';
+import SellerRegister from './components/auth/seller';
 
 import Sellpage from './components/sell';
 import Buypage from './components/buy';

@@ -5,6 +5,11 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 
+import adddetails from '../../assets/images/adddetails.png';
+import rupee from '../../assets/images/rupee.png';
+import product from '../../assets/images/product.png';
+import newuser from '../../assets/images/newuser.png';
+
 class SellerRegister extends React.Component {
 
   constructor() {
@@ -61,98 +66,120 @@ class SellerRegister extends React.Component {
     const { errors } = this.state;
 
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col s8 offset-s2">
+      <section>
+        <div className="hero ">
+          <div className="hero-body">
+            <div className="container">
+              <div className="columns is-mobile">
+                <div className="column is-8">
+                  <div className="title is-4 has-text-centered is-spaced ">
+                    Sell your Products on the platform in 4 Simple Steps:
+                  </div>
+                  <div className="level">
+                    <div className="level-item has-text-centered">
+                      <div>
+                        <img className="image is-centered is-64x64" src={newuser}  />
+                        <p className="subtitle">Create Account</p>
+                      </div>
+                    </div>
+                    <div className="level-item">
+                    <div>
+                      <img className="image is-centered is-64x64" src={adddetails}  />
+                      <p className="subtitle">Add Details</p>
+                    </div>
+                    </div>
+                    <div className="level-item has-text-centered">
+                      <div>
+                        <img className="image is-centered is-64x64" src={product}  />
+                        <p className="subtitle">Add Product</p>
+                      </div>
+                    </div>
+                    <div className="level-item has-text-centered">
+                      <div>
+                        <img className="image is-centered is-64x64" src={rupee}  />
+                        <p className="subtitle">Start Selling</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="column is-4">
+                <div className="box">
+                  <div className="heading has-text-centered">
+                    <strong>Create your account as a Seller</strong>
+                  </div>
+                  <form noValidate onSubmit={this.onSubmit}>
 
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Register as a seller</b>
-              </h4>
-              <p className="grey-text text-darken-1">
-                Already have an account? <Link to="/login">Log in</Link>
-              </p>
+                    <div className="field is-expanded">
+                        <div className="field has-addons">
+                          <p className="control">
+                            <a className="button is-static">
+                              Name
+                            </a>
+                          </p>
+                          <p className="control is-expanded">
+                            <input className="input" onChange={this.onChange} error={errors.name} value={this.state.name} on id="name" name='name' type="text" placeholder="Text input" />
+                          </p>
+                        </div>
+                    </div>
+                      <p className="help is-danger">{errors.name}</p>
+
+                    <div className="field is-expanded">
+                      <div className="field has-addons">
+                        <p className="control">
+                          <a className="button is-static">
+                            Email
+                          </a>
+                        </p>
+                        <p className="control is-expanded">
+                          <input className="input" onChange={this.onChange} value={this.state.email} id="email"  type="email" placeholder="Enter you Email id" />
+                        </p>
+                      </div>
+                    </div>
+                    <div className="field is-expanded">
+                      <div className="field has-addons">
+                        <p className="control">
+                          <a className="button is-static">
+                            Password
+                          </a>
+                        </p>
+                        <p className="control is-expanded">
+                          <input className="input" onChange={this.onChange} value={this.state.password} id="password"  type="password" placeholder="Enter your Password" />
+                        </p>
+                      </div>
+                    </div>
+                    <div className="field is-expanded">
+                      <div className="field has-addons">
+                        <p className="control">
+                          <a className="button is-static">
+                            Password
+                          </a>
+                        </p>
+                        <p className="control is-expanded">
+                          <input className="input" onChange={this.onChange} value={this.state.password2} id="password2"  type="password" placeholder="Re-Enter your Password" />
+                        </p>
+                      </div>
+                    </div>
+                    <div className="field">
+                    <div className="field is-grouped">
+                        <div className="control">
+                          <button className="button is-link">Submit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                </div>
+              </div>
             </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.name}
-                  error={errors.name}
-                  id="name"
-                  type="text"
-                  className={classnames("", {
-                    invalid: errors.name
-                  })}
-                />
-                <label htmlFor="name">Name</label>
-                <span className="red-text">{errors.name}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.email}
-                  error={errors.email}
-                  id="email"
-                  type="email"
-                  className={classnames("", {
-                    invalid: errors.email
-                  })}
-                />
-                <label htmlFor="email">Email</label>
-                <span className="red-text">{errors.email}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password}
-                  error={errors.password}
-                  id="password"
-                  type="password"
-                  className={classnames("", {
-                    invalid: errors.password
-                  })}
-                />
-                <label htmlFor="password">Password</label>
-                <span className="red-text">{errors.password}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password2}
-                  error={errors.password2}
-                  id="password2"
-                  type="password"
-                  className={classnames("", {
-                    invalid: errors.password2
-                  })}
-                />
-                <label htmlFor="password2">Confirm Password</label>
-                <span className="red-text">{errors.password2}</span>
-              </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Sign up
-                </button>
-              </div>
-            </form>
           </div>
         </div>
-      </div>
+      </section>
+
     );
   }
 }
 
-BuyerRegister.propTypes = {
+SellerRegister.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
