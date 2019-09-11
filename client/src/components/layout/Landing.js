@@ -1,3 +1,4 @@
+ /* eslint-disable */
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import imageone from '../../assets/images/LANDINGPAGEIMAGE1.png';
@@ -22,7 +23,7 @@ class Landing extends Component {
           <div  className="hero is-medium">
             <div className="hero-body">
               <div className="container">
-                <div className="columns is-mobile">
+                <div className="columns">
                   <div className="column is-9">
                     <div className="subtitle is-4 is-spaced">
                       INTRODUCING <strong>REWIND</strong>
@@ -60,7 +61,7 @@ class Landing extends Component {
         <div className="hero">
           <div className="hero-body">
             <div className="container">
-              <div className="columns is-mobile">
+              <div className="columns">
                 <div className="column is-6">
                   <figure className="image ">
                     <img src={imageone} />
@@ -69,7 +70,7 @@ class Landing extends Component {
                 <div className="column is-6">
                   <div className="tile is-vertical">
                     <div className="tile is-child">
-                      <div className="box tile-box">
+                      <div className="box is-marginless is-paddingless is-radiusless is-shadowless">
                         <div className="level-left is-mobile">
                           <div className="level-item">
                             <img className="image" src={easy} />
@@ -79,40 +80,37 @@ class Landing extends Component {
                           </div>
                         </div>
                         <div className="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                          Discover potential trading partners, get updates on current market prices. Sell scrap on your terms. Rewind facilitates secure payments  and arranges for quick logistics.
                         </div>
                       </div>
                     </div>
                     <div className="tile is-child">
-                    <div className="box tile-box">
+                    <div className="box is-marginless is-paddingless is-radiusless is-shadowless">
                       <div className="level-left is-mobile">
                         <div className="level-item">
                           <img className="image" src={stats} />
                         </div>
                         <div className="level-item">
-                          <span className="title">Manage Your Agreements</span>
+                          <span className="title">Manage Your Business</span>
                         </div>
                       </div>
                       <div className="content">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                          Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                          Manage your orders and agreements, with an easy to use dashboard. Analyze you business revenue and leads on the go.
                       </div>
                     </div>
                     </div>
                     <div className="tile is-child">
-                    <div className="box tile-box">
+                    <div className="box is-marginless is-paddingless is-radiusless is-shadowless">
                       <div className="level-left is-mobile">
                         <div className="level-item">
                           <img className="image" src={social} />
                         </div>
                         <div className="level-item">
-                          <span className="title">Connect with other buyers</span>
+                          <span className="title">Connect Directly</span>
                         </div>
                       </div>
                       <div className="content">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                          Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                        Connect directly with other verified trading partners and discuss about the material and negotiate terms of credit directly with the partner.
                       </div>
                     </div>
                     </div>
@@ -139,7 +137,7 @@ class Landing extends Component {
                       <img className="image" src={trust} />
                     </div>
                     <div className="level-item">
-                      <span className="title is-5 has-text-white">Trusted Company</span>
+                      <span className="title is-5 has-text-white">Trusted trading partners</span>
                     </div>
                   </div>
                 </div>
@@ -149,7 +147,7 @@ class Landing extends Component {
                       <img className="image" src={support} />
                     </div>
                     <div className="level-item">
-                      <span className="title is-5 has-text-white">24/7 Support</span>
+                      <span className="title is-5 has-text-white">Connect Directly</span>
                     </div>
                   </div>
                 </div>
@@ -189,14 +187,14 @@ class Landing extends Component {
                 <div>
                   <img className="image" src={phone} />
                   <p className="title is-4">Phone No</p>
-                  <p className="heading">D.N Nagar, Andheri West, Mumbai</p>
+                  <p className="heading">7977892365</p>
                 </div>
               </div>
               <div className="level-item has-text-centered">
                 <div>
                   <img className="image" src={queries} />
                   <p className="title is-4">Queries</p>
-                  <p className="heading">D.N Nagar, Andheri West, Mumbai</p>
+                  <p className="heading">pratikkatte7@gmail.com</p>
                 </div>
               </div>
             </div>

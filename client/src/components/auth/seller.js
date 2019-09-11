@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link, withRouter } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
-import classnames from "classnames";
 
 import adddetails from '../../assets/images/adddetails.png';
 import rupee from '../../assets/images/rupee.png';
@@ -64,7 +63,7 @@ class SellerRegister extends React.Component {
 
   render() {
     const { errors } = this.state;
-
+    console.log(errors)
     return (
       <section>
         <div className="hero ">
@@ -78,25 +77,25 @@ class SellerRegister extends React.Component {
                   <div className="level">
                     <div className="level-item has-text-centered">
                       <div>
-                        <img className="image is-centered is-64x64" src={newuser}  />
+                        <img className="image is-centered is-64x64" alt="create account" src={newuser}  />
                         <p className="subtitle">Create Account</p>
                       </div>
                     </div>
                     <div className="level-item">
                     <div>
-                      <img className="image is-centered is-64x64" src={adddetails}  />
+                      <img className="image is-centered is-64x64" alt="add details" src={adddetails}  />
                       <p className="subtitle">Add Details</p>
                     </div>
                     </div>
                     <div className="level-item has-text-centered">
                       <div>
-                        <img className="image is-centered is-64x64" src={product}  />
+                        <img className="image is-centered is-64x64" alt="product" src={product}  />
                         <p className="subtitle">Add Product</p>
                       </div>
                     </div>
                     <div className="level-item has-text-centered">
                       <div>
-                        <img className="image is-centered is-64x64" src={rupee}  />
+                        <img className="image is-centered is-64x64"alt="start selling"  src={rupee}  />
                         <p className="subtitle">Start Selling</p>
                       </div>
                     </div>
@@ -112,12 +111,12 @@ class SellerRegister extends React.Component {
                     <div className="field is-expanded">
                         <div className="field has-addons">
                           <p className="control">
-                            <a className="button is-static">
+                            <span className="button is-static">
                               Name
-                            </a>
+                            </span>
                           </p>
                           <p className="control is-expanded">
-                            <input className="input" onChange={this.onChange} error={errors.name} value={this.state.name} on id="name" name='name' type="text" placeholder="Text input" />
+                            <input className="input" onChange={this.onChange} error={errors.name} value={this.state.name} id="name" name='name' type="text" placeholder="Text input" />
                           </p>
                         </div>
                     </div>
@@ -126,46 +125,51 @@ class SellerRegister extends React.Component {
                     <div className="field is-expanded">
                       <div className="field has-addons">
                         <p className="control">
-                          <a className="button is-static">
+                          <span className="button is-static">
                             Email
-                          </a>
+                          </span>
                         </p>
                         <p className="control is-expanded">
-                          <input className="input" onChange={this.onChange} value={this.state.email} id="email"  type="email" placeholder="Enter you Email id" />
+                          <input className="input" onChange={this.onChange} value={this.state.email} error={errors.email} id="email"  type="email" placeholder="Enter you Email id" />
+                        </p>
+                      </div>
+                    </div>
+                    <p className="help is-danger">{errors.email}</p>
+
+                    <div className="field is-expanded">
+                      <div className="field has-addons">
+                        <p className="control">
+                          <span className="button is-static">
+                            Password
+                          </span>
+                        </p>
+                        <p className="control is-expanded">
+                          <input className="input" onChange={this.onChange} value={this.state.password}  error={errors.password} id="password"  type="password" placeholder="Enter your Password" />
                         </p>
                       </div>
                     </div>
                     <div className="field is-expanded">
                       <div className="field has-addons">
                         <p className="control">
-                          <a className="button is-static">
+                          <span className="button is-static">
                             Password
-                          </a>
+                          </span>
                         </p>
                         <p className="control is-expanded">
-                          <input className="input" onChange={this.onChange} value={this.state.password} id="password"  type="password" placeholder="Enter your Password" />
+                          <input className="input" onChange={this.onChange} value={this.state.password2}  error={errors.password2} id="password2"  type="password" placeholder="Re-Enter your Password" />
                         </p>
                       </div>
                     </div>
-                    <div className="field is-expanded">
-                      <div className="field has-addons">
-                        <p className="control">
-                          <a className="button is-static">
-                            Password
-                          </a>
-                        </p>
-                        <p className="control is-expanded">
-                          <input className="input" onChange={this.onChange} value={this.state.password2} id="password2"  type="password" placeholder="Re-Enter your Password" />
-                        </p>
-                      </div>
-                    </div>
+                    <p className="help is-danger">{errors.password}</p>
+
                     <div className="field">
-                    <div className="field is-grouped">
-                        <div className="control">
-                          <button className="button is-link">Submit</button>
+                      <div className="field is-grouped">
+                          <div className="control">
+                            <button className="button is-link">Submit</button>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                      <p className="help is-danger">{errors.password2}</p>
                   </form>
                 </div>
                 </div>

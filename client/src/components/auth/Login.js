@@ -1,3 +1,4 @@
+ /* eslint-disable */
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -17,7 +18,7 @@ class Login extends Component {
 
   componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
-    if (this.props.auth.isAuthenticated && this.props.user.auth.user_type === 'buyer') {
+    if (this.props.auth.isAuthenticated && this.props.auth.user.user_type === 'buyer') {
       this.props.history.push("/buy");
     }
     else if (this.props.auth.isAuthenticated && this.props.auth.user.user_type === 'seller') {
@@ -26,9 +27,9 @@ class Login extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.isAuthenticated && this.props.user.auth.user_type === 'buyer') {
+    if (nextProps.auth.isAuthenticated && this.props.auth.user.user_type === 'buyer') {
       this.props.history.push("/buy");
-    }  else if ( nextProps.auth.isAuthenticated && this.props.user.auth.user_type === 'seller' ) {
+    }  else if ( nextProps.auth.isAuthenticated && this.props.auth.user.user_type === 'seller' ) {
       this.props.history.push("/sell");
     }
 

@@ -1,9 +1,10 @@
+ /* eslint-disable */
+
 import React from 'react';
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
-import classnames from "classnames";
 
 class BuyerRegister extends React.Component {
 
@@ -44,7 +45,7 @@ class BuyerRegister extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-
+    console.log("e", e)
     const newUser = {
       name: this.state.name,
       email: this.state.email,
@@ -84,9 +85,9 @@ class BuyerRegister extends React.Component {
                     <div className="field is-expanded">
                         <div className="field has-addons">
                           <p className="control">
-                            <a className="button is-static">
+                            <span className="button is-static">
                               Name
-                            </a>
+                            </span>
                           </p>
                           <p className="control is-expanded">
                             <input className="input" onChange={this.onChange} error={errors.name} value={this.state.name} id="name" name='name' type="text" placeholder="Text input" />
@@ -98,47 +99,53 @@ class BuyerRegister extends React.Component {
                     <div className="field is-expanded">
                       <div className="field has-addons">
                         <p className="control">
-                          <a className="button is-static">
+                          <span className="button is-static">
                             Email
-                          </a>
+                          </span>
                         </p>
                         <p className="control is-expanded">
-                          <input className="input" onChange={this.onChange} value={this.state.email} id="email"  type="email" placeholder="Enter you Email id" />
+                          <input className="input" onChange={this.onChange} value={this.state.email} error={errors.email} id="email"  type="email" placeholder="Enter you Email id" />
+                        </p>
+                      </div>
+                    </div>
+                    <p className="help is-danger">{errors.email}</p>
+
+                    <div className="field is-expanded">
+                      <div className="field has-addons">
+                        <p className="control">
+                          <span className="button is-static">
+                            Password
+                          </span>
+                        </p>
+                        <p className="control is-expanded">
+                          <input className="input" onChange={this.onChange} value={this.state.password}  error={errors.password} id="password"  type="password" placeholder="Enter your Password" />
                         </p>
                       </div>
                     </div>
                     <div className="field is-expanded">
                       <div className="field has-addons">
                         <p className="control">
-                          <a className="button is-static">
+                          <span className="button is-static">
                             Password
-                          </a>
+                          </span>
                         </p>
                         <p className="control is-expanded">
-                          <input className="input" onChange={this.onChange} value={this.state.password} id="password"  type="password" placeholder="Enter your Password" />
+                          <input className="input" onChange={this.onChange} value={this.state.password2}  error={errors.password2} id="password2"  type="password" placeholder="Re-Enter your Password" />
                         </p>
                       </div>
                     </div>
-                    <div className="field is-expanded">
-                      <div className="field has-addons">
-                        <p className="control">
-                          <a className="button is-static">
-                            Password
-                          </a>
-                        </p>
-                        <p className="control is-expanded">
-                          <input className="input" onChange={this.onChange} value={this.state.password2} id="password2"  type="password" placeholder="Re-Enter your Password" />
-                        </p>
-                      </div>
-                    </div>
+                    <p className="help is-danger">{errors.password}</p>
+
                     <div className="field">
-                    <div className="field is-grouped">
-                        <div className="control">
-                          <button className="button is-link">Submit</button>
+                      <div className="field is-grouped">
+                          <div className="control">
+                            <button className="button is-link">Submit</button>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                      <p className="help is-danger">{errors.password2}</p>
                   </form>
+
                 </div>
                 </div>
               </div>
