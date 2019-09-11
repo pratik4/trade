@@ -33,7 +33,6 @@ if (localStorage.jwtToken) {
 
   // Check for expired token
 
-  console.log(decoded);
   const currentTime = Date.now() / 1000; // to get in milliseconds
   if (decoded.exp < currentTime) {
     // Logout user

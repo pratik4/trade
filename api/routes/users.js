@@ -85,7 +85,8 @@ class userRoute {
         // Create JWT Payload
         const payload = {
           id: user.id,
-          name: user.name
+          name: user.name,
+          user_type: user.usertype
         };
 
         // Sign token

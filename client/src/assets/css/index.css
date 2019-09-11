@@ -28,6 +28,29 @@
   padding: 0px 30px;
 }
 
+.selldetail {
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  text-align: center;
+}
+
+.form-header {
+  padding-bottom: inherit;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.btn-size {
+  width: 100px;
+}
+
+.selldetail .title {
+  padding-bottom: 50px;
+}
+
 @media screen and (max-width: 768px) {
   .navbarItem {
     padding:0px 0px;
@@ -35,6 +58,5 @@
   .navbarItem .button {
     padding: 0px 0px;
   }
-
 
 }

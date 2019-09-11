@@ -27,6 +27,7 @@ class Login extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    const {user}  = this.props.auth;
     if (nextProps.auth.isAuthenticated && this.props.auth.user.user_type === 'buyer') {
       this.props.history.push("/buy");
     }  else if ( nextProps.auth.isAuthenticated && this.props.auth.user.user_type === 'seller' ) {
