@@ -16,6 +16,10 @@
   margin-top: 70px;
 }
 
+.login-input {
+  height: 50px;
+}
+
 
 .navbarItem {
   display: flex;
@@ -45,10 +49,19 @@
 
 .btn-size {
   width: 100px;
+  height: 50px;
 }
 
+.subt-btn {
+    width: 150px;
+    height: 40px;
+}
 .selldetail .title {
   padding-bottom: 50px;
+}
+
+.inputform .field:not(:last-child) {
+ margin-bottom:20px;
 }
 
 @media screen and (max-width: 768px) {

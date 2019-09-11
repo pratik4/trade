@@ -118,7 +118,7 @@ class SellerRegister extends React.Component {
                             </span>
                           </p>
                           <p className="control is-expanded">
-                            <input className="input" onChange={this.onChange} error={errors.name} value={this.state.name} id="name" name='name' type="text" placeholder="Text input" />
+                            <input className="input" onChange={this.onChange} error={errors.name} value={this.state.name} id="name" name='name' type="text" placeholder="Enter Name" />
                           </p>
                         </div>
                         <p className="help is-danger">{errors.name}</p>
@@ -171,7 +171,7 @@ class SellerRegister extends React.Component {
 
                     <div className="field">
                       <div className="control">
-                        <button className="button is-fullwidth is-outlined is-black">Submit</button>
+                        <button className="button is-fullwidth is-outlined is-black">SignUp</button>
                       </div>
                     </div>
                   </form>
